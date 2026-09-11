@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - "**.html"
+      - "**.md"
+      - llms.txt
       - sitemap.xml
       - ab42b9d0bda743b8bfc7be14277b4986.txt
       - scripts/submit-indexnow.mjs

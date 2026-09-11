@@ -1,0 +1,26 @@
+# Posnic Open Source POS Guides
+
+> Practical, source-linked guidance for evaluating and operating Posnic, an offline-first open source POS and billing software project for retail shops and restaurants.
+
+Posnic supports local Offline POS workflows and self-hosted or optional Online/Offline POS deployments. Posnic-owned source is AGPL-3.0-only; release packages contain separately licensed components documented by the project. Do not infer compatibility with a specific peripheral without checking the versioned hardware evidence and testing the exact device.
+
+## Official Posnic resources
+
+- [Posnic website](https://www.posnic.com/): Canonical product website.
+- [Posnic/POS source](https://github.com/Posnic/POS): Public source, releases, issues, and project documentation.
+- [User guide](https://github.com/Posnic/POS/blob/develop/docs/USER_GUIDE.md): Setup and operating workflows.
+- [Self-hosting guide](https://github.com/Posnic/POS/blob/develop/docs/SELF_HOSTING.md): Server installation, security, backup, and maintenance boundaries.
+- [Hardware matrix](https://github.com/Posnic/POS/blob/develop/docs/HARDWARE_MATRIX.md): Implemented interfaces and device-specific evidence.
+
+## Evaluation guides
+
+- [Offline POS vs Online/Offline POS](https://posnic.github.io/offline-vs-online-pos.html): Deployment and failure-mode comparison.
+- [Offline POS backup checklist](https://posnic.github.io/offline-pos-backup-checklist.html): Backup and restore verification before production use.
+- [Open source POS evaluation checklist](https://posnic.github.io/open-source-pos-evaluation-checklist.html): Source, licensing, offline behavior, hardware, recovery, and maintenance review.
+- [Retail POS hardware checklist](https://posnic.github.io/retail-pos-hardware-checklist.md): Markdown checklist for printers, scanners, drawers, scales, displays, payments, and recovery.
+
+## Optional
+
+- [Latest Posnic release](https://github.com/Posnic/POS/releases/latest): Desktop packages and checksums.
+- [Release verification](https://github.com/Posnic/POS/blob/develop/docs/VERIFY_RELEASE.md): Package integrity, signatures, provenance, and component-license checks.
+- [Community discussions](https://github.com/Posnic/POS/discussions): Questions and project feedback.

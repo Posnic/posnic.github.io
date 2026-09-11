@@ -6,7 +6,10 @@ const endpoint = 'https://api.indexnow.org/indexnow';
 const keyLocation = `https://${host}/${key}.txt`;
 
 const sitemap = await readFile(new URL('../sitemap.xml', import.meta.url), 'utf8');
-const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const urls = [
+  ...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g),
+].map((match) => match[1]);
+urls.push(`https://${host}/llms.txt`);
 
 if (urls.length === 0) {
   throw new Error('The sitemap contains no URLs to submit.');
