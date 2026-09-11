@@ -1,0 +1,33 @@
+name: Notify IndexNow
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**.html"
+      - sitemap.xml
+      - ab42b9d0bda743b8bfc7be14277b4986.txt
+      - scripts/submit-indexnow.mjs
+      - .github/workflows/indexnow.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow-main
+  cancel-in-progress: true
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate submission payload
+        run: node scripts/submit-indexnow.mjs --dry-run
+      - name: Notify IndexNow
+        run: node scripts/submit-indexnow.mjs
