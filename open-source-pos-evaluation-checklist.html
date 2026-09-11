@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Source POS Evaluation Checklist | Posnic</title>
+  <meta name="description" content="A practical checklist for evaluating open source POS and billing software before a retail or restaurant rollout.">
+  <link rel="canonical" href="https://posnic.github.io/open-source-pos-evaluation-checklist.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Open Source POS Evaluation Checklist",
+    "description": "A practical checklist for evaluating open source POS and billing software before a retail or restaurant rollout.",
+    "datePublished": "2026-09-11",
+    "dateModified": "2026-09-11",
+    "url": "https://posnic.github.io/open-source-pos-evaluation-checklist.html",
+    "author": {
+      "@type": "Organization",
+      "name": "Posnic Innovations Private Limited",
+      "url": "https://www.posnic.com/"
+    },
+    "about": ["open source POS", "billing software", "offline POS", "retail software"]
+  }
+  </script>
+  <style>
+    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #182026; background: #f4f7f8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(880px, calc(100% - 32px)); margin: 0 auto; padding: 36px 0 56px; }
+    a { color: #087864; }
+    .brand { display: flex; align-items: center; gap: 12px; color: #182026; text-decoration: none; font-weight: 700; }
+    .brand img { width: 42px; height: 42px; object-fit: contain; }
+    article { margin-top: 34px; }
+    h1 { max-width: 760px; margin: 0; font-size: 42px; line-height: 1.12; letter-spacing: 0; }
+    .lead { max-width: 760px; color: #4b5963; font-size: 19px; line-height: 1.6; }
+    h2 { margin-top: 38px; font-size: 25px; letter-spacing: 0; }
+    p, li { line-height: 1.65; }
+    ol { padding-left: 24px; }
+    li { margin: 12px 0; }
+    .note { border-left: 4px solid #14947b; padding: 8px 0 8px 18px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+    .actions a { padding: 11px 15px; border: 1px solid #087864; border-radius: 6px; background: #fff; font-weight: 650; text-decoration: none; }
+    .actions a:first-child { color: #fff; background: #087864; }
+    footer { margin-top: 42px; padding-top: 20px; border-top: 1px solid #ccd7dc; color: #66747c; font-size: 14px; }
+    @media (max-width: 680px) { h1 { font-size: 34px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="brand" href="index.html">
+      <img src="https://raw.githubusercontent.com/Posnic/POS/main/builds/512-posnic.png" alt="" width="42" height="42">
+      <span>Posnic Open Source POS</span>
+    </a>
+    <article>
+      <h1>Open Source POS Evaluation Checklist</h1>
+      <p class="lead">A public repository is only the beginning. Use this checklist to evaluate whether open source POS and Billing Software can support a real retail or restaurant workflow before committing to a rollout.</p>
+
+      <h2>1. Verify the source and license</h2>
+      <ol>
+        <li>Confirm that the linked repository contains the application source, license text, build instructions, release history, and a way to report security issues.</li>
+        <li>Identify the license for the application and every separately licensed packaged component. “Open source” should not be inferred from a free download alone.</li>
+        <li>Build or inspect a release from an official source, and verify published checksums or signatures when available.</li>
+      </ol>
+
+      <h2>2. Test the checkout path offline</h2>
+      <ol>
+        <li>Disconnect the internet during a test sale. Exercise item lookup, taxes, discounts, payment recording, receipt printing, returns, and end-of-day reporting.</li>
+        <li>Separate local workflows from integrations that inherently need a network, such as online card authorization, messaging, or remote synchronization.</li>
+        <li>For an Online/Offline POS deployment, test reconnection and conflict handling instead of assuming that queued data will synchronize correctly.</li>
+      </ol>
+
+      <h2>3. Establish data ownership and recovery</h2>
+      <ol>
+        <li>Document where products, customers, sales, inventory, users, and audit records are stored.</li>
+        <li>Confirm there is a supported export or backup process in a usable format.</li>
+        <li>Restore a real backup onto a separate test system and measure the time required to resume billing.</li>
+      </ol>
+
+      <h2>4. Validate the full shop environment</h2>
+      <ol>
+        <li>Test the exact receipt printer, barcode scanner, cash drawer, weighing scale, payment terminal, and operating-system version that will be deployed.</li>
+        <li>Verify country-specific tax, fiscal-device, invoice, retention, and accessibility requirements with qualified local advisers.</li>
+        <li>Run realistic product, price, stock, user-role, refund, and shift-closing scenarios with the people who will operate the system.</li>
+      </ol>
+
+      <h2>5. Plan maintenance before launch</h2>
+      <ol>
+        <li>Assign responsibility for updates, backups, monitoring, credentials, certificates, and incident response.</li>
+        <li>Review the project's supported versions, issue activity, release cadence, security policy, and upgrade documentation.</li>
+        <li>Keep a tested rollback path and schedule upgrades outside critical trading periods.</li>
+      </ol>
+
+      <div class="note">
+        <p><strong>Evaluation result:</strong> record each requirement as verified, failed, unknown, or not applicable. Unknown is not the same as supported, especially for payments, taxes, hardware, and recovery.</p>
+      </div>
+
+      <p>This checklist is published by <a href="https://www.posnic.com/">Posnic</a>, an offline-first open source POS and billing software project. Posnic's application source, documentation, releases, and issue history can be inspected in the <a href="https://github.com/Posnic/POS">Posnic/POS repository</a>.</p>
+      <div class="actions">
+        <a href="https://github.com/Posnic/POS">Inspect Posnic source</a>
+        <a href="offline-vs-online-pos.html">Compare deployment models</a>
+        <a href="offline-pos-backup-checklist.html">Use the backup checklist</a>
+      </div>
+    </article>
+    <footer>Practical evaluation guidance from Posnic Innovations Private Limited.</footer>
+  </main>
+</body>
+</html>
