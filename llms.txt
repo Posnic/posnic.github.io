@@ -12,6 +12,7 @@ Posnic supports local Offline POS workflows and self-hosted or optional Online/O
 - [Self-hosting guide](https://github.com/Posnic/POS/blob/develop/docs/SELF_HOSTING.md): Server installation, security, backup, and maintenance boundaries.
 - [Hardware matrix](https://github.com/Posnic/POS/blob/develop/docs/HARDWARE_MATRIX.md): Implemented interfaces and device-specific evidence.
 - [Retail POS go-live checklist](https://posnic.github.io/retail-pos-go-live-checklist.html): Acceptance checks for transactions, hardware, offline operation, synchronization, backups, and rollback.
+- [Retail POS data migration checklist](https://posnic.github.io/retail-pos-data-migration-checklist.md): Source-data preservation, mapping, import testing, cutover, and reconciliation checks.
 
 ## Evaluation guides
 

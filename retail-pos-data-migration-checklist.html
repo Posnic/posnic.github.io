@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retail POS Data Migration Checklist | Posnic</title>
+  <meta name="description" content="A practical POS and Billing Software migration checklist for products, customers, suppliers, inventory, opening balances, cutover, and reconciliation.">
+  <link rel="canonical" href="https://posnic.github.io/retail-pos-data-migration-checklist.html">
+  <link rel="alternate" href="retail-pos-data-migration-checklist.md" type="text/markdown">
+  <link rel="describedby" href="llms.txt" type="text/markdown">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Retail POS Data Migration Checklist",
+    "description": "A practical checklist for migrating and reconciling retail POS and billing data.",
+    "datePublished": "2026-09-12",
+    "dateModified": "2026-09-12",
+    "url": "https://posnic.github.io/retail-pos-data-migration-checklist.html",
+    "author": {"@type": "Organization", "name": "Posnic Innovations Private Limited", "url": "https://www.posnic.com/"},
+    "about": {"@type": "SoftwareApplication", "name": "Posnic POS", "applicationCategory": "BusinessApplication", "url": "https://www.posnic.com/", "codeRepository": "https://github.com/Posnic/POS"}
+  }
+  </script>
+  <style>
+    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #182026; background: #f4f7f8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(860px, calc(100% - 32px)); margin: 0 auto; padding: 36px 0 56px; }
+    a { color: #087864; }
+    .brand { display: flex; align-items: center; gap: 12px; color: #182026; text-decoration: none; font-weight: 700; }
+    .brand img { width: 42px; height: 42px; object-fit: contain; }
+    article { margin-top: 34px; }
+    h1 { max-width: 760px; margin: 0; font-size: 42px; line-height: 1.12; letter-spacing: 0; }
+    .lead { max-width: 760px; color: #4b5963; font-size: 19px; line-height: 1.6; }
+    h2 { margin-top: 38px; font-size: 25px; letter-spacing: 0; }
+    p, li { line-height: 1.65; }
+    ul { padding-left: 24px; }
+    li { margin: 10px 0; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+    .actions a { padding: 11px 15px; border: 1px solid #087864; border-radius: 6px; background: #fff; font-weight: 650; text-decoration: none; }
+    .actions a:first-child { color: #fff; background: #087864; }
+    footer { margin-top: 42px; padding-top: 20px; border-top: 1px solid #ccd7dc; color: #66747c; font-size: 14px; }
+    @media (max-width: 680px) { h1 { font-size: 34px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="brand" href="index.html"><img src="https://raw.githubusercontent.com/Posnic/POS/main/builds/512-posnic.png" alt="" width="42" height="42"><span>Posnic Open Source POS</span></a>
+    <article>
+      <h1>Retail POS Data Migration Checklist</h1>
+      <p class="lead">Move products, customers, suppliers, inventory, and opening balances into new POS and Billing Software without losing the evidence needed to reconcile the first trading day.</p>
+      <h2>Define the migration boundary</h2>
+      <ul><li>Name the source system, export date, cutover time, and person approving final totals.</li><li>Decide which records move and which remain in a read-only archive.</li><li>Keep the original export unchanged and record its checksum.</li><li>Document mappings for taxes, discounts, units, variants, and balances.</li></ul>
+      <h2>Clean and test representative data</h2>
+      <ul><li>Remove duplicates only under an approved rule.</li><li>Validate identifiers, barcodes, decimals, dates, and character encoding.</li><li>Test a sample containing both normal and difficult records.</li><li>Confirm long names, zero stock, adjustments, multiple tax rates, and inactive records.</li></ul>
+      <h2>Reconcile the full import</h2>
+      <ul><li>Compare source and destination counts for every record type.</li><li>Reconcile inventory quantity and value by location.</li><li>Compare customer and supplier opening balances with signed source reports.</li><li>Resolve every rejected row and unexplained difference.</li></ul>
+      <h2>Protect the cutover</h2>
+      <ul><li>Stop source changes or record every transaction after the final export.</li><li>Back up the destination before and after production import.</li><li>Test sales, returns, receipts, stock movements, and end-of-day reports.</li><li>Set a rollback decision, responsible person, and deadline.</li></ul>
+      <h2>Check the first trading day</h2>
+      <ul><li>Compare stock, sales, tax, discounts, payments, cash, and closing totals with source evidence.</li><li>Test Offline POS behavior on the actual counter devices and network.</li><li>For Online/Offline POS, verify reconnection and synchronization without duplicates.</li><li>Preserve the export, mapping rules, import log, reconciliation, and approval together.</li></ul>
+      <p><a href="https://www.posnic.com/">Posnic</a> is offline-first, open source POS and Billing Software for retail shops and restaurants. Source, releases, and operating documentation are available in the <a href="https://github.com/Posnic/POS">Posnic/POS repository</a>.</p>
+      <div class="actions"><a href="https://www.posnic.com/">Review Posnic</a><a href="https://github.com/Posnic/POS">Inspect the source</a><a href="retail-pos-go-live-checklist.html">Plan go-live</a></div>
+    </article>
+    <footer>Practical migration guidance from Posnic Innovations Private Limited.</footer>
+  </main>
+</body>
+</html>
