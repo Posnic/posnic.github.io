@@ -1,49 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Under Maintenance</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            margin: 0;
-        }
-        .container {
-            text-align: center;
-        }
-        h1 {
-            font-size: 2.5rem;
-            color: #333;
-        }
-        p {
-            font-size: 1.1rem;
-            color: #666;
-        }
-        .contact-info {
-            margin-top: 20px;
-            font-size: 1rem;
-        }
-        .contact-info p {
-            margin: 5px 0;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Posnic Open Source POS and Billing Software</title>
+  <meta name="description" content="Official links for Posnic, an offline-first open-source POS and billing software project for retail shops and restaurants.">
+  <link rel="canonical" href="https://www.posnic.com/">
+  <style>
+    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #182026; background: #f4f7f8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(880px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0; }
+    header { display: flex; align-items: center; gap: 20px; border-bottom: 3px solid #14947b; padding-bottom: 28px; }
+    header img { width: 88px; height: 88px; object-fit: contain; }
+    h1 { margin: 0 0 8px; font-size: clamp(30px, 6vw, 48px); line-height: 1.05; letter-spacing: 0; }
+    header p { margin: 0; max-width: 680px; color: #4b5963; font-size: 18px; line-height: 1.55; }
+    nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+    a.resource { display: block; min-height: 106px; padding: 18px; border: 1px solid #ccd7dc; border-radius: 6px; color: inherit; background: #fff; text-decoration: none; }
+    a.resource:hover, a.resource:focus-visible { border-color: #087864; outline: 3px solid #bce9df; outline-offset: 2px; }
+    strong { display: block; margin-bottom: 6px; color: #087864; font-size: 17px; }
+    span { color: #57656e; line-height: 1.45; }
+    footer { margin-top: 30px; color: #66747c; font-size: 14px; }
+    @media (max-width: 620px) {
+      main { padding: 32px 0; }
+      header { align-items: flex-start; }
+      header img { width: 64px; height: 64px; }
+      nav { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>We’ll Be Right Back!</h1>
-        <p>Our website is currently undergoing scheduled maintenance. Thank you for your patience.</p>
-        <div class="contact-info">
-            <p>If you have any questions, please feel free to reach us:</p>
-            <p>Email: <a href="mailto:info@posnic.com">info@posnic.com</a></p>
-            <p>Phone: +91 9494 1111 61</p>
-        </div>
-    </div>
+  <main>
+    <header>
+      <img src="https://raw.githubusercontent.com/Posnic/POS/main/builds/512-posnic.png" alt="Posnic logo" width="88" height="88">
+      <div>
+        <h1>Posnic</h1>
+        <p>Offline-first open-source POS and billing software for retail shops and restaurants, available for Windows, macOS and Linux.</p>
+      </div>
+    </header>
+    <nav aria-label="Official Posnic resources">
+      <a class="resource" href="https://www.posnic.com/"><strong>Official website</strong><span>Product information, guides and verified Posnic resources.</span></a>
+      <a class="resource" href="https://github.com/Posnic/POS"><strong>Source code</strong><span>Review, build and contribute to the AGPL-3.0 Posnic POS project.</span></a>
+      <a class="resource" href="https://github.com/Posnic/POS/releases/latest"><strong>Latest release</strong><span>Desktop installers and checksums published through GitHub Releases.</span></a>
+      <a class="resource" href="https://github.com/Posnic/POS/blob/develop/docs/USER_GUIDE.md"><strong>User guide</strong><span>Setup and workflow documentation for the current development line.</span></a>
+      <a class="resource" href="https://demo.posnic.io/"><strong>Live demo</strong><span>Explore the hosted demonstration environment.</span></a>
+      <a class="resource" href="https://github.com/Posnic/POS/discussions"><strong>Community</strong><span>Ask questions, share feedback and discuss the open-source POS.</span></a>
+    </nav>
+    <footer>Posnic Innovations Private Limited, India.</footer>
+  </main>
 </body>
 </html>
