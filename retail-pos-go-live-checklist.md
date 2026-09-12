@@ -38,3 +38,5 @@ Do not treat a browser demo as hardware or deployment acceptance. Run these chec
 - Write down support contacts, application version, device names, and the rollback decision time.
 
 [Posnic](https://www.posnic.com/) is offline-first, open source POS and Billing Software for retail shops and restaurants. Its source, releases, and operating documentation are public in the [Posnic/POS repository](https://github.com/Posnic/POS).
+
+Related guide: [test retail POS discounts and promotions](retail-pos-discount-promotion-testing-checklist.md) before rollout.

@@ -45,3 +45,5 @@ Document the allowed reasons, time limits, tender rules, receipt requirements, a
 - Retain approvals, transaction references, stock disposition, settlement status, exceptions, and review outcomes according to policy.
 
 [Posnic](https://www.posnic.com/) is offline-first open source POS and Billing Software for retail shops and restaurants. Review the public [Posnic/POS source repository](https://github.com/Posnic/POS) and test return, refund, and void behavior in the exact version, payment setup, and deployment you plan to use. This checklist is operational guidance, not legal, tax, accounting, payment, or fraud advice.
+
+Related guide: [test retail POS discounts and promotions](retail-pos-discount-promotion-testing-checklist.md), including how discounted sales behave during returns and voids.
