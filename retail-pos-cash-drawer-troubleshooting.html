@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retail POS Cash Drawer Troubleshooting | Posnic</title>
+  <meta name="description" content="A practical cash-drawer troubleshooting checklist for retail POS and Billing Software, including Offline POS recovery and reconciliation.">
+  <link rel="canonical" href="https://posnic.github.io/retail-pos-cash-drawer-troubleshooting.html">
+  <link rel="alternate" href="retail-pos-cash-drawer-troubleshooting.md" type="text/markdown">
+  <link rel="describedby" href="llms.txt" type="text/markdown">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Retail POS Cash Drawer Troubleshooting",
+    "description": "A practical fault-isolation and recovery checklist for cash drawers in retail POS deployments.",
+    "datePublished": "2026-09-13",
+    "dateModified": "2026-09-13",
+    "url": "https://posnic.github.io/retail-pos-cash-drawer-troubleshooting.html",
+    "author": {"@type": "Organization", "name": "Posnic Innovations Private Limited", "url": "https://www.posnic.com/"},
+    "about": {"@type": "SoftwareApplication", "name": "Posnic POS", "applicationCategory": "BusinessApplication", "url": "https://www.posnic.com/", "codeRepository": "https://github.com/Posnic/POS"}
+  }
+  </script>
+  <style>
+    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #182026; background: #f4f7f8; }
+    * { box-sizing: border-box; } body { margin: 0; } main { width: min(920px, calc(100% - 32px)); margin: 0 auto; padding: 36px 0 56px; }
+    a { color: #087864; } .brand { display: flex; align-items: center; gap: 12px; color: #182026; text-decoration: none; font-weight: 700; }
+    .brand img { width: 42px; height: 42px; object-fit: contain; } article { margin-top: 34px; }
+    h1 { max-width: 780px; margin: 0; font-size: 42px; line-height: 1.12; letter-spacing: 0; } .lead { max-width: 800px; color: #4b5963; font-size: 19px; line-height: 1.6; }
+    h2 { margin-top: 38px; font-size: 25px; letter-spacing: 0; } p, li { line-height: 1.65; } ol, ul { padding-left: 24px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; } th, td { padding: 13px 14px; border: 1px solid #ccd7dc; text-align: left; vertical-align: top; line-height: 1.45; } th { background: #e8f3f0; }
+    .callout { border-left: 4px solid #14947b; padding: 4px 0 4px 18px; } .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+    .actions a { padding: 11px 15px; border: 1px solid #087864; border-radius: 6px; background: #fff; font-weight: 650; text-decoration: none; } .actions a:first-child { color: #fff; background: #087864; }
+    footer { margin-top: 42px; padding-top: 20px; border-top: 1px solid #ccd7dc; color: #66747c; font-size: 14px; }
+    @media (max-width: 680px) { h1 { font-size: 34px; } .table-wrap { overflow-x: auto; } table { min-width: 680px; } }
+  </style>
+</head>
+<body><main>
+  <a class="brand" href="index.html"><img src="https://raw.githubusercontent.com/Posnic/POS/main/builds/512-posnic.png" alt="" width="42" height="42"><span>Posnic Open Source POS</span></a>
+  <article>
+    <h1>Retail POS Cash Drawer Troubleshooting</h1>
+    <p class="lead">When a cash drawer does not open, protect the completed sale and the till audit trail before retrying. Diagnose the drawer, receipt-printer path, operating-system configuration, and POS authorization separately.</p>
+    <h2>Protect the transaction first</h2>
+    <ol><li>Confirm whether the sale completed and record the bill number, tender, operator, terminal, and time.</li><li>Do not repeat payment or recreate the sale just to trigger the drawer.</li><li>Use the documented manual-open process when cash is trapped, including manager approval and an audit note.</li><li>Count and reconcile the till after any forced opening, repeated kick, or uncertain transaction state.</li></ol>
+    <h2>Isolate the failing layer</h2>
+    <div class="table-wrap"><table><thead><tr><th>Check</th><th>Evidence to collect</th><th>Interpretation</th></tr></thead><tbody>
+      <tr><td>Drawer key and mechanism</td><td>Key position, obstruction, latch movement, and cable condition.</td><td>A drawer that cannot open mechanically needs hardware service before software testing.</td></tr>
+      <tr><td>Printer self-test</td><td>Printer status, interface, paper state, and self-test result.</td><td>Many drawers connect through the receipt printer; a failed printer path can also prevent the drawer kick.</td></tr>
+      <tr><td>Printer test receipt</td><td>Driver, port, queue state, and output.</td><td>A successful print narrows the fault to drawer wiring, kick command, pulse settings, or authorization.</td></tr>
+      <tr><td>Authorized POS open</td><td>Operator role, action used, configured printer, and visible error.</td><td>Failure only for one role or workflow points to permissions or POS configuration.</td></tr>
+      <tr><td>Known-good comparison</td><td>Drawer, cable, printer port, and till used.</td><td>Change one component at a time so the failed part is identifiable.</td></tr>
+    </tbody></table></div>
+    <h2>Check common failure modes</h2>
+    <ul><li>Put the key in the normal electronic-operation position and remove objects blocking the tray.</li><li>Reseat the modular cable at both ends; do not assume a telephone cable has the correct wiring.</li><li>Confirm the drawer is connected to the configured receipt printer's drawer port.</li><li>Verify the printer model, driver, connector selection, kick pin, pulse timing, and cash-drawer command.</li><li>Test whether the drawer should open for cash only, for selected tenders, or through an authorized manual-open action.</li><li>During Offline POS operation, verify that local opening does not depend on a cloud response.</li><li>Stop repeated kick attempts if the solenoid, cable, or printer port becomes hot or behaves intermittently.</li></ul>
+    <h2>Recover and reconcile</h2>
+    <div class="callout"><p>After repair, run one controlled cash sale and one authorized manual-open test. Confirm the drawer does not open for disallowed tenders, failed payments, cancelled sales, or unauthorized users. Reconcile cash and retain the incident evidence according to shop policy.</p></div>
+    <p><a href="https://www.posnic.com/">Posnic</a> is offline-first open source POS and Billing Software for retail shops and restaurants. Review the public <a href="https://github.com/Posnic/POS">Posnic/POS source repository</a>, its hardware evidence, and the exact Offline POS or Online/Offline POS deployment before claiming compatibility with a drawer or printer model.</p>
+    <div class="actions"><a href="https://github.com/Posnic/POS/blob/develop/docs/HARDWARE_MATRIX.md">Review the hardware matrix</a><a href="https://www.posnic.com/">Visit Posnic</a><a href="retail-pos-receipt-printer-troubleshooting.html">Troubleshoot the printer</a></div>
+  </article>
+  <footer>Practical deployment guidance from Posnic Innovations Private Limited.</footer>
+</main></body></html>
