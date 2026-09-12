@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retail POS Tax and Invoice Configuration Testing Checklist | Posnic</title>
+  <meta name="description" content="A practical retail POS checklist for testing tax rates, item classes, inclusive and exclusive pricing, rounding, receipts, invoices, and offline synchronization.">
+  <link rel="canonical" href="https://posnic.github.io/retail-pos-tax-invoice-testing-checklist.html">
+  <link rel="alternate" href="retail-pos-tax-invoice-testing-checklist.md" type="text/markdown">
+  <link rel="describedby" href="llms.txt" type="text/markdown">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Retail POS Tax and Invoice Configuration Testing Checklist",
+    "description": "A practical checklist for testing retail POS tax rates, item classifications, pricing basis, rounding, receipts, invoices, offline operation, and synchronization.",
+    "datePublished": "2026-09-13",
+    "dateModified": "2026-09-13",
+    "url": "https://posnic.github.io/retail-pos-tax-invoice-testing-checklist.html",
+    "author": { "@type": "Organization", "name": "Posnic Innovations Private Limited", "url": "https://www.posnic.com/" },
+    "about": { "@type": "SoftwareApplication", "name": "Posnic POS", "applicationCategory": "BusinessApplication", "url": "https://www.posnic.com/", "codeRepository": "https://github.com/Posnic/POS" }
+  }
+  </script>
+  <style>
+    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #182026; background: #f4f7f8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(920px, calc(100% - 32px)); margin: 0 auto; padding: 36px 0 56px; }
+    a { color: #087864; }
+    .brand { display: flex; align-items: center; gap: 12px; color: #182026; text-decoration: none; font-weight: 700; }
+    .brand img { width: 42px; height: 42px; object-fit: contain; }
+    article { margin-top: 34px; }
+    h1 { max-width: 820px; margin: 0; font-size: 42px; line-height: 1.12; letter-spacing: 0; }
+    .lead { max-width: 800px; color: #4b5963; font-size: 19px; line-height: 1.6; }
+    h2 { margin-top: 38px; font-size: 25px; letter-spacing: 0; }
+    p, li { line-height: 1.65; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { padding: 13px 14px; border: 1px solid #ccd7dc; text-align: left; vertical-align: top; line-height: 1.45; }
+    th { background: #e8f3f0; }
+    .callout { border-left: 4px solid #14947b; padding: 4px 0 4px 18px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+    .actions a { padding: 11px 15px; border: 1px solid #087864; border-radius: 6px; background: #fff; font-weight: 650; text-decoration: none; }
+    .actions a:first-child { color: #fff; background: #087864; }
+    footer { margin-top: 42px; padding-top: 20px; border-top: 1px solid #ccd7dc; color: #66747c; font-size: 14px; }
+    @media (max-width: 680px) { h1 { font-size: 34px; } .table-wrap { overflow-x: auto; } table { min-width: 760px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="brand" href="index.html"><img src="https://raw.githubusercontent.com/Posnic/POS/main/builds/512-posnic.png" alt="" width="42" height="42"><span>Posnic Open Source POS</span></a>
+    <article>
+      <h1>Retail POS Tax and Invoice Configuration Testing Checklist</h1>
+      <p class="lead">Test rates, item classifications, pricing basis, rounding, receipts, invoices, and synchronization before production billing.</p>
+      <h2>Establish the approved configuration</h2>
+      <ul><li>Record business locations, registrations, currencies, effective dates, and approved tax treatment.</li><li>Keep written approval for every rate, item class, exemption, surcharge, and invoice field.</li><li>Separate configuration by jurisdiction or location instead of reusing a convenient default.</li><li>Name the people responsible for approving changes and testing them.</li></ul>
+      <div class="callout"><p>Confirm applicable tax, invoicing, fiscal-device, retention, and reporting requirements with qualified local tax and accounting advisers. Software configuration does not determine legal compliance by itself.</p></div>
+      <h2>Build representative test data</h2>
+      <div class="table-wrap"><table><thead><tr><th>Scenario</th><th>What to verify</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Standard item</td><td>Normal rate and expected price basis.</td><td>Item setup, calculation, receipt, and report.</td></tr>
+        <tr><td>Zero-rated or exempt item</td><td>Correct classification and required wording.</td><td>Approval, item class, receipt, and export.</td></tr>
+        <tr><td>Mixed basket</td><td>Several rates and classifications in one sale.</td><td>Line tax, subtotal, total, and summary.</td></tr>
+        <tr><td>Inclusive price</td><td>Displayed price already contains tax.</td><td>Net, tax, gross, and rounding.</td></tr>
+        <tr><td>Exclusive price</td><td>Tax is added to the displayed net price.</td><td>Net, rate, tax, and payable total.</td></tr>
+        <tr><td>Discounted sale</td><td>Discount interacts with the configured tax basis.</td><td>Original price, discount, tax, and final total.</td></tr>
+        <tr><td>Return or credit</td><td>Original tax treatment reverses correctly.</td><td>Source sale, reversal, stock, and audit trail.</td></tr>
+        <tr><td>Boundary amount</td><td>Very small, large, and fractional values.</td><td>Precision and documented rounding rule.</td></tr>
+      </tbody></table></div>
+      <h2>Verify receipts, invoices, and reports</h2>
+      <ul><li>Confirm required business, location, registration, date, number, line, discount, tax, and total fields.</li><li>Verify the display, printed receipt, invoice, reprint, PDF, reports, and exports agree.</li><li>Test sequential numbering, duplicates, cancelled documents, credit notes, and reprints without changing the original sale.</li><li>Check that rounding differences are visible, explainable, and consistent across line, document, tender, and report totals.</li><li>Preserve the software version, configuration export, expected calculation, actual output, and approval.</li></ul>
+      <h2>Test Offline POS and synchronization</h2>
+      <ul><li>Disconnect the network and confirm the Offline POS retains approved rates, classifications, numbering rules, and receipt fields.</li><li>Record the configuration version and effective date held by each till before testing.</li><li>For Online/Offline POS deployments, change a future-dated rule centrally and verify each till receives it once after reconnection.</li><li>Confirm offline sales keep their original calculation and document identity after synchronization.</li><li>Test conflicting edits, clock differences, duplicate uploads, delayed returns, and reporting cutoffs.</li></ul>
+      <h2>Control changes and rollout</h2>
+      <p>Require approval, a test result, a deployment window, and a rollback plan before changing production settings. Pilot at a limited till or location, reconcile sample sales independently, and review failed synchronization, manual overrides, unusual zero tax, numbering gaps, and differences between billing and accounting exports.</p>
+      <p><a href="https://www.posnic.com/">Posnic</a> is offline-first open source POS and Billing Software for retail shops and restaurants. Review the public <a href="https://github.com/Posnic/POS">Posnic/POS source repository</a> and validate tax and invoice behavior in the exact version, country, business setup, hardware, and Offline POS or Online/Offline POS deployment you plan to use. This checklist is operational testing guidance, not legal, tax, or accounting advice.</p>
+      <div class="actions"><a href="https://github.com/Posnic/POS">Review the source</a><a href="https://www.posnic.com/">Visit Posnic</a><a href="retail-pos-discount-promotion-testing-checklist.html">Test discounts and promotions</a></div>
+    </article>
+    <footer>Practical tax and invoice configuration testing guidance from Posnic Innovations Private Limited.</footer>
+  </main>
+</body>
+</html>
