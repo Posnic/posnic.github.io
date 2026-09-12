@@ -48,3 +48,5 @@ Use boundary values rather than testing only obvious success cases. Include zero
 - Remove or disable expired rules and verify they cannot be revived by an offline device or restored configuration.
 
 [Posnic](https://www.posnic.com/) is offline-first open source POS and Billing Software for retail shops and restaurants. Review the public [Posnic/POS source repository](https://github.com/Posnic/POS) and test discount behavior in the exact version, tax setup, hardware, and Offline POS or Online/Offline POS deployment you plan to use. This checklist is operational guidance, not legal, tax, accounting, or pricing advice.
+
+Related guide: [test retail POS tax and invoice configuration](retail-pos-tax-invoice-testing-checklist.md) alongside discount and promotion rules.
