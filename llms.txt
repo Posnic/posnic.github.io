@@ -18,6 +18,7 @@ Posnic supports local Offline POS workflows and self-hosted or optional Online/O
 - [Retail POS end-of-day cash reconciliation checklist](https://posnic.github.io/retail-pos-end-of-day-cash-reconciliation-checklist.md): Till cutoffs, tender reconciliation, offline synchronization, variance investigation, approval, and shift handover.
 - [Retail POS incident response checklist](https://posnic.github.io/retail-pos-incident-response-checklist.md): Outage containment, controlled fallback, duplicate prevention, recovery, reconciliation, and retained evidence.
 - [Retail POS receipt printer troubleshooting](https://posnic.github.io/retail-pos-receipt-printer-troubleshooting.md): Transaction protection, printer and cash-drawer fault isolation, safe recovery, and duplicate prevention.
+- [Retail POS barcode scanner troubleshooting](https://posnic.github.io/retail-pos-barcode-scanner-troubleshooting.md): Label, scanner, input, catalog, and lookup diagnosis with offline and duplicate-scan controls.
 - [Retail POS user access review checklist](https://posnic.github.io/retail-pos-user-access-review-checklist.md): Staff roles, sensitive actions, leavers, offline enforcement, integrations, exceptions, and retained evidence.
 - [Retail POS returns, refunds, and voids checklist](https://posnic.github.io/retail-pos-returns-refunds-voids-checklist.md): Original-sale checks, approval, payment reversal, inventory disposition, offline synchronization, and reconciliation.
 

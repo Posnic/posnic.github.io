@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retail POS Barcode Scanner Setup and Troubleshooting | Posnic</title>
+  <meta name="description" content="A practical barcode-scanner setup and troubleshooting checklist for retail POS and Billing Software, including Offline POS testing and duplicate-scan controls.">
+  <link rel="canonical" href="https://posnic.github.io/retail-pos-barcode-scanner-troubleshooting.html">
+  <link rel="alternate" href="retail-pos-barcode-scanner-troubleshooting.md" type="text/markdown">
+  <link rel="describedby" href="llms.txt" type="text/markdown">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Retail POS Barcode Scanner Setup and Troubleshooting",
+    "description": "A practical setup, fault-isolation, and acceptance checklist for barcode scanners in retail POS deployments.",
+    "datePublished": "2026-09-12",
+    "dateModified": "2026-09-12",
+    "url": "https://posnic.github.io/retail-pos-barcode-scanner-troubleshooting.html",
+    "author": {"@type": "Organization", "name": "Posnic Innovations Private Limited", "url": "https://www.posnic.com/"},
+    "about": {"@type": "SoftwareApplication", "name": "Posnic POS", "applicationCategory": "BusinessApplication", "url": "https://www.posnic.com/", "codeRepository": "https://github.com/Posnic/POS"}
+  }
+  </script>
+  <style>
+    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #182026; background: #f4f7f8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(920px, calc(100% - 32px)); margin: 0 auto; padding: 36px 0 56px; }
+    a { color: #087864; }
+    .brand { display: flex; align-items: center; gap: 12px; color: #182026; text-decoration: none; font-weight: 700; }
+    .brand img { width: 42px; height: 42px; object-fit: contain; }
+    article { margin-top: 34px; }
+    h1 { max-width: 800px; margin: 0; font-size: 42px; line-height: 1.12; letter-spacing: 0; }
+    .lead { max-width: 800px; color: #4b5963; font-size: 19px; line-height: 1.6; }
+    h2 { margin-top: 38px; font-size: 25px; letter-spacing: 0; }
+    p, li { line-height: 1.65; }
+    ol, ul { padding-left: 24px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { padding: 13px 14px; border: 1px solid #ccd7dc; text-align: left; vertical-align: top; line-height: 1.45; }
+    th { background: #e8f3f0; }
+    .callout { border-left: 4px solid #14947b; padding: 4px 0 4px 18px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+    .actions a { padding: 11px 15px; border: 1px solid #087864; border-radius: 6px; background: #fff; font-weight: 650; text-decoration: none; }
+    .actions a:first-child { color: #fff; background: #087864; }
+    footer { margin-top: 42px; padding-top: 20px; border-top: 1px solid #ccd7dc; color: #66747c; font-size: 14px; }
+    @media (max-width: 680px) { h1 { font-size: 34px; } .table-wrap { overflow-x: auto; } table { min-width: 680px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="brand" href="index.html"><img src="https://raw.githubusercontent.com/Posnic/POS/main/builds/512-posnic.png" alt="" width="42" height="42"><span>Posnic Open Source POS</span></a>
+    <article>
+      <h1>Retail POS Barcode Scanner Setup and Troubleshooting</h1>
+      <p class="lead">When a scan fails or selects the wrong item, isolate the label, scanner, connection, captured input, product data, and POS lookup rules in that order. Protect the transaction while collecting evidence.</p>
+
+      <h2>Record the intended setup</h2>
+      <ul>
+        <li>Identify the scanner model, connection type, firmware, configured symbologies, and programming guide.</li>
+        <li>Record whether it acts as a keyboard, serial device, camera, or vendor-specific interface.</li>
+        <li>Confirm the terminal, operating system, keyboard layout, POS version, and target input field.</li>
+        <li>Keep one known-good barcode for every format the shop uses, including weighted or price-embedded labels where applicable.</li>
+      </ul>
+
+      <h2>Test one layer at a time</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Test</th><th>Evidence to collect</th><th>What it isolates</th></tr></thead>
+        <tbody>
+          <tr><td>Visual inspection</td><td>Printed digits, check digit, contrast, damage, curvature, and label size.</td><td>Label quality and supported symbology.</td></tr>
+          <tr><td>Plain-text scan</td><td>Exact captured characters, including prefix and suffix.</td><td>Decoding, keyboard layout, and terminator configuration.</td></tr>
+          <tr><td>POS item lookup</td><td>Captured code, selected item, unit, quantity, and price.</td><td>Product data and POS lookup behavior.</td></tr>
+          <tr><td>Repeated scan</td><td>Count after slow, fast, and accidental double scans.</td><td>Trigger, focus, debounce, and quantity rules.</td></tr>
+          <tr><td>Offline test</td><td>Lookup and sale behavior with the network unavailable.</td><td>Local catalog availability and Offline POS dependencies.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2>Check common failure modes</h2>
+      <ul>
+        <li>If no characters appear, verify power, pairing, cable, USB port, permissions, and the selected operating mode.</li>
+        <li>If characters are wrong, compare scanner and operating-system keyboard layouts and remove unwanted prefixes or formatting rules.</li>
+        <li>If the code appears but the POS does nothing, verify focus, the required Enter or Tab suffix, minimum length, and lookup configuration.</li>
+        <li>If the wrong item appears, search for duplicate barcodes, leading-zero changes, check-digit handling, unit variants, and stale local data.</li>
+        <li>If one scan adds multiple units, test the trigger, suffix timing, application debounce, and quantity-increment policy.</li>
+        <li>If only some labels fail, confirm their symbology is enabled and that embedded price, weight, or GS1 data is parsed intentionally.</li>
+      </ul>
+
+      <h2>Protect sales and inventory</h2>
+      <div class="callout"><p>Test in a training transaction before changing production scanner programming. Confirm item, variant, unit, tax, price, and quantity before payment, and reconcile any sale affected by a wrong or duplicate scan.</p></div>
+      <p>For Online/Offline POS deployments, verify that catalog updates synchronize before relying on a newly assigned barcode. Retest after scanner resets, driver changes, operating-system updates, POS upgrades, or catalog migrations.</p>
+
+      <p><a href="https://www.posnic.com/">Posnic</a> is offline-first open source POS and Billing Software for retail shops and restaurants. Review the public <a href="https://github.com/Posnic/POS">Posnic/POS source repository</a> and its hardware evidence before claiming compatibility with a specific scanner or barcode format.</p>
+      <div class="actions">
+        <a href="https://github.com/Posnic/POS/blob/develop/docs/HARDWARE_MATRIX.md">Review the hardware matrix</a>
+        <a href="https://www.posnic.com/">Visit Posnic</a>
+        <a href="retail-pos-hardware-checklist.html">Use the hardware checklist</a>
+      </div>
+    </article>
+    <footer>Practical deployment guidance from Posnic Innovations Private Limited.</footer>
+  </main>
+</body>
+</html>
