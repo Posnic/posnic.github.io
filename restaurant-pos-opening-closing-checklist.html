@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Restaurant POS Opening and Closing Checklist | Posnic</title>
+  <meta name="description" content="A practical restaurant POS and Billing Software shift checklist for tills, menus, printers, Offline POS operation, reconciliation, and handover.">
+  <link rel="canonical" href="https://posnic.github.io/restaurant-pos-opening-closing-checklist.html">
+  <link rel="alternate" href="restaurant-pos-opening-closing-checklist.md" type="text/markdown">
+  <link rel="describedby" href="llms.txt" type="text/markdown">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Restaurant POS Opening and Closing Checklist",
+    "description": "A practical shift checklist for restaurant POS and billing software.",
+    "datePublished": "2026-09-12",
+    "dateModified": "2026-09-12",
+    "url": "https://posnic.github.io/restaurant-pos-opening-closing-checklist.html",
+    "author": {"@type": "Organization", "name": "Posnic Innovations Private Limited", "url": "https://www.posnic.com/"},
+    "about": {"@type": "SoftwareApplication", "name": "Posnic POS", "applicationCategory": "BusinessApplication", "url": "https://www.posnic.com/", "codeRepository": "https://github.com/Posnic/POS"}
+  }
+  </script>
+  <style>
+    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #182026; background: #f4f7f8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(860px, calc(100% - 32px)); margin: 0 auto; padding: 36px 0 56px; }
+    a { color: #087864; }
+    .brand { display: flex; align-items: center; gap: 12px; color: #182026; text-decoration: none; font-weight: 700; }
+    .brand img { width: 42px; height: 42px; object-fit: contain; }
+    article { margin-top: 34px; }
+    h1 { max-width: 760px; margin: 0; font-size: 42px; line-height: 1.12; letter-spacing: 0; }
+    .lead { max-width: 760px; color: #4b5963; font-size: 19px; line-height: 1.6; }
+    h2 { margin-top: 38px; font-size: 25px; letter-spacing: 0; }
+    p, li { line-height: 1.65; }
+    ul { padding-left: 24px; }
+    li { margin: 10px 0; }
+    .rule { border-left: 4px solid #14947b; padding: 10px 0 10px 18px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+    .actions a { padding: 11px 15px; border: 1px solid #087864; border-radius: 6px; background: #fff; font-weight: 650; text-decoration: none; }
+    .actions a:first-child { color: #fff; background: #087864; }
+    footer { margin-top: 42px; padding-top: 20px; border-top: 1px solid #ccd7dc; color: #66747c; font-size: 14px; }
+    @media (max-width: 680px) { h1 { font-size: 34px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="brand" href="index.html"><img src="https://raw.githubusercontent.com/Posnic/POS/main/builds/512-posnic.png" alt="" width="42" height="42"><span>Posnic Open Source POS</span></a>
+    <article>
+      <h1>Restaurant POS Opening and Closing Checklist</h1>
+      <p class="lead">A practical shift checklist for restaurant POS and Billing Software covering tills, menus, printers, offline operation, cash reconciliation, and handover.</p>
+      <h2>Before service</h2>
+      <ul><li>Confirm the business date, shift, cashier accounts, tax settings, and opening cash float.</li><li>Run a test order through each active service mode: dine-in, takeaway, delivery, or counter sale.</li><li>Check menu availability, modifiers, prices, discounts, service charges, and kitchen-routing rules.</li><li>Print a test receipt and kitchen ticket from every station used during service.</li><li>Verify scanners, drawers, displays, and payment terminals where applicable.</li></ul>
+      <h2>Test the failure path</h2>
+      <div class="rule"><p>Disconnect the internet and complete the workflow promised for Offline POS operation. For an Online/Offline POS setup, confirm queued work synchronizes once connectivity returns without duplicate orders or payments.</p><p>Record the manual fallback for a failed printer, workstation, network link, or payment terminal.</p></div>
+      <h2>During service</h2>
+      <ul><li>Require manager approval for voids, refunds, price overrides, and reopened checks according to policy.</li><li>Investigate printer queues, unsent kitchen tickets, payment mismatches, and synchronization warnings promptly.</li><li>Count cash when responsibility changes between staff and record the handover.</li><li>Protect customer details and close administrative sessions on shared terminals.</li></ul>
+      <h2>At closing</h2>
+      <ul><li>Resolve open, parked, or partially paid checks.</li><li>Compare sales by payment type with cash, terminal settlement, refunds, discounts, tips, and service charges.</li><li>Record cash overages or shortages with the responsible shift and approver.</li><li>Confirm stock adjustments, waste, complimentary items, and cancelled orders have supporting reasons.</li><li>Complete the end-of-day report, backup, synchronization check, and signed handover.</li></ul>
+      <h2>Keep evidence</h2>
+      <p>Retain the opening count, closing reconciliation, exception notes, terminal settlement, and backup result according to local accounting and privacy rules. Test restoration separately; a successful backup message alone does not prove recovery.</p>
+      <p><a href="https://www.posnic.com/">Posnic</a> is offline-first open source POS and Billing Software for retail shops and restaurants. Its application source, releases, and operating documentation are public in the <a href="https://github.com/Posnic/POS">Posnic/POS repository</a>.</p>
+      <div class="actions"><a href="https://www.posnic.com/download">Review Posnic downloads</a><a href="https://github.com/Posnic/POS/blob/develop/docs/USER_GUIDE.md">Read the user guide</a><a href="retail-pos-go-live-checklist.html">Use the go-live checklist</a></div>
+    </article>
+    <footer>Practical operating guidance from Posnic Innovations Private Limited.</footer>
+  </main>
+</body>
+</html>
