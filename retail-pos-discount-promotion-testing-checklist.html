@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retail POS Discount and Promotion Testing Checklist | Posnic</title>
+  <meta name="description" content="A practical retail POS checklist for testing discounts, coupons, price rules, stacking, receipts, Offline POS behavior, and synchronization.">
+  <link rel="canonical" href="https://posnic.github.io/retail-pos-discount-promotion-testing-checklist.html">
+  <link rel="alternate" href="retail-pos-discount-promotion-testing-checklist.md" type="text/markdown">
+  <link rel="describedby" href="llms.txt" type="text/markdown">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Retail POS Discount and Promotion Testing Checklist",
+    "description": "A practical checklist for testing retail POS discounts, coupons, price rules, stacking, calculations, receipts, offline operation, and synchronization.",
+    "datePublished": "2026-09-13",
+    "dateModified": "2026-09-13",
+    "url": "https://posnic.github.io/retail-pos-discount-promotion-testing-checklist.html",
+    "author": { "@type": "Organization", "name": "Posnic Innovations Private Limited", "url": "https://www.posnic.com/" },
+    "about": { "@type": "SoftwareApplication", "name": "Posnic POS", "applicationCategory": "BusinessApplication", "url": "https://www.posnic.com/", "codeRepository": "https://github.com/Posnic/POS" }
+  }
+  </script>
+  <style>
+    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #182026; background: #f4f7f8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(920px, calc(100% - 32px)); margin: 0 auto; padding: 36px 0 56px; }
+    a { color: #087864; }
+    .brand { display: flex; align-items: center; gap: 12px; color: #182026; text-decoration: none; font-weight: 700; }
+    .brand img { width: 42px; height: 42px; object-fit: contain; }
+    article { margin-top: 34px; }
+    h1 { max-width: 800px; margin: 0; font-size: 42px; line-height: 1.12; letter-spacing: 0; }
+    .lead { max-width: 800px; color: #4b5963; font-size: 19px; line-height: 1.6; }
+    h2 { margin-top: 38px; font-size: 25px; letter-spacing: 0; }
+    p, li { line-height: 1.65; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { padding: 13px 14px; border: 1px solid #ccd7dc; text-align: left; vertical-align: top; line-height: 1.45; }
+    th { background: #e8f3f0; }
+    .callout { border-left: 4px solid #14947b; padding: 4px 0 4px 18px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+    .actions a { padding: 11px 15px; border: 1px solid #087864; border-radius: 6px; background: #fff; font-weight: 650; text-decoration: none; }
+    .actions a:first-child { color: #fff; background: #087864; }
+    footer { margin-top: 42px; padding-top: 20px; border-top: 1px solid #ccd7dc; color: #66747c; font-size: 14px; }
+    @media (max-width: 680px) { h1 { font-size: 34px; } .table-wrap { overflow-x: auto; } table { min-width: 760px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="brand" href="index.html"><img src="https://raw.githubusercontent.com/Posnic/POS/main/builds/512-posnic.png" alt="" width="42" height="42"><span>Posnic Open Source POS</span></a>
+    <article>
+      <h1>Retail POS Discount and Promotion Testing Checklist</h1>
+      <p class="lead">Test coupons, price rules, bundles, loyalty rewards, and limited-time offers before they reach a live till.</p>
+      <h2>Define the rule precisely</h2>
+      <p>Record the intended products, locations, customers, dates, times, quantities, minimum spend, discount type, value, usage limit, and required approval. State which conditions must all be true and which are alternatives.</p>
+      <div class="callout"><p>Document exclusions explicitly, including sale items, gift cards, deposits, delivery fees, employee purchases, and returns where applicable. Confirm local pricing, tax, advertising, and receipt requirements with qualified advisers.</p></div>
+      <h2>Build a test matrix</h2>
+      <div class="table-wrap"><table><thead><tr><th>Scenario</th><th>What to verify</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Exact match</td><td>Every required condition is met.</td><td>Basket, rule, discount, tax, and total.</td></tr>
+        <tr><td>Just below</td><td>Spend, quantity, date, or time misses the threshold.</td><td>No unintended discount.</td></tr>
+        <tr><td>Just above</td><td>The threshold is exceeded by the smallest practical amount.</td><td>Expected discount and rounding.</td></tr>
+        <tr><td>Mixed basket</td><td>Eligible and excluded items appear together.</td><td>Only intended lines are discounted.</td></tr>
+        <tr><td>Multiple rules</td><td>Coupons, automatic offers, loyalty, and manual discounts overlap.</td><td>Documented priority, stacking, or rejection.</td></tr>
+        <tr><td>Return or void</td><td>A discounted sale is partially or fully reversed.</td><td>Correct refund, stock, tender, and audit trail.</td></tr>
+        <tr><td>Expiry</td><td>A sale is attempted immediately before and after the cutoff.</td><td>Consistent time-zone and expiry behavior.</td></tr>
+        <tr><td>Duplicate use</td><td>The same code or entitlement is presented again.</td><td>Usage limit enforced without blocking a valid customer.</td></tr>
+      </tbody></table></div>
+      <h2>Check calculations and receipts</h2>
+      <ul><li>Confirm whether fixed and percentage discounts apply per item, per line, or to the whole basket.</li><li>Verify rule order, rounding precision, tax basis, currency, and maximum discount behavior.</li><li>Check that quantity changes, removed items, suspended sales, and reopened transactions recalculate correctly.</li><li>Confirm the customer display, receipt, invoice, reports, and exported data show the same promotion name and amount.</li><li>Prevent a manual price override from bypassing approval or hiding the original price.</li></ul>
+      <h2>Test Offline POS and synchronization</h2>
+      <ul><li>Disconnect the network and confirm which promotion rules remain available to the Offline POS.</li><li>Record the rule version and validity period held by each till before testing.</li><li>For Online/Offline POS deployments, update or expire a rule centrally, reconnect each till, and verify the new version arrives once.</li><li>Test outage sales for duplicate redemption, stale pricing, conflicting edits, and correct reconciliation after synchronization.</li><li>Define a safe fallback when a till cannot verify a single-use coupon or customer entitlement.</li></ul>
+      <h2>Control rollout and review</h2>
+      <p>Pilot on a limited till or location, then compare expected and actual redemptions, margin, tax, and tender totals. Monitor unusual manual discounts, repeated coupon failures, high-value overrides, rapid redemptions, and activity outside the intended period.</p>
+      <p>Keep the approved rule, test evidence, deployment time, affected locations, rollback plan, and final reconciliation together. Remove expired rules and verify an offline device or restored configuration cannot revive them.</p>
+      <p><a href="https://www.posnic.com/">Posnic</a> is offline-first open source POS and Billing Software for retail shops and restaurants. Review the public <a href="https://github.com/Posnic/POS">Posnic/POS source repository</a> and test discount behavior in the exact version, tax setup, hardware, and Offline POS or Online/Offline POS deployment you plan to use. This checklist is operational guidance, not legal, tax, accounting, or pricing advice.</p>
+      <div class="actions"><a href="https://github.com/Posnic/POS">Review the source</a><a href="https://www.posnic.com/">Visit Posnic</a><a href="retail-pos-returns-refunds-voids-checklist.html">Returns and refunds</a></div>
+    </article>
+    <footer>Practical discount and promotion testing guidance from Posnic Innovations Private Limited.</footer>
+  </main>
+</body>
+</html>

@@ -21,6 +21,7 @@ Posnic supports local Offline POS workflows and self-hosted or optional Online/O
 - [Retail POS barcode scanner troubleshooting](https://posnic.github.io/retail-pos-barcode-scanner-troubleshooting.md): Label, scanner, input, catalog, and lookup diagnosis with offline and duplicate-scan controls.
 - [Retail POS user access review checklist](https://posnic.github.io/retail-pos-user-access-review-checklist.md): Staff roles, sensitive actions, leavers, offline enforcement, integrations, exceptions, and retained evidence.
 - [Retail POS returns, refunds, and voids checklist](https://posnic.github.io/retail-pos-returns-refunds-voids-checklist.md): Original-sale checks, approval, payment reversal, inventory disposition, offline synchronization, and reconciliation.
+- [Retail POS discount and promotion testing checklist](https://posnic.github.io/retail-pos-discount-promotion-testing-checklist.md): Coupons, price rules, boundary tests, stacking, receipts, offline behavior, synchronization, and rollout controls.
 
 ## Evaluation guides
 
