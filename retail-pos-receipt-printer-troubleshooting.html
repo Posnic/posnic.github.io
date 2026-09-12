@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retail POS Receipt Printer Troubleshooting | Posnic</title>
+  <meta name="description" content="A practical receipt-printer and cash-drawer troubleshooting checklist for retail POS and Billing Software, including Offline POS failure handling.">
+  <link rel="canonical" href="https://posnic.github.io/retail-pos-receipt-printer-troubleshooting.html">
+  <link rel="alternate" href="retail-pos-receipt-printer-troubleshooting.md" type="text/markdown">
+  <link rel="describedby" href="llms.txt" type="text/markdown">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Retail POS Receipt Printer Troubleshooting",
+    "description": "A practical fault-isolation checklist for receipt printers and connected cash drawers in retail POS deployments.",
+    "datePublished": "2026-09-12",
+    "dateModified": "2026-09-12",
+    "url": "https://posnic.github.io/retail-pos-receipt-printer-troubleshooting.html",
+    "author": {"@type": "Organization", "name": "Posnic Innovations Private Limited", "url": "https://www.posnic.com/"},
+    "about": {"@type": "SoftwareApplication", "name": "Posnic POS", "applicationCategory": "BusinessApplication", "url": "https://www.posnic.com/", "codeRepository": "https://github.com/Posnic/POS"}
+  }
+  </script>
+  <style>
+    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #182026; background: #f4f7f8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(920px, calc(100% - 32px)); margin: 0 auto; padding: 36px 0 56px; }
+    a { color: #087864; }
+    .brand { display: flex; align-items: center; gap: 12px; color: #182026; text-decoration: none; font-weight: 700; }
+    .brand img { width: 42px; height: 42px; object-fit: contain; }
+    article { margin-top: 34px; }
+    h1 { max-width: 780px; margin: 0; font-size: 42px; line-height: 1.12; letter-spacing: 0; }
+    .lead { max-width: 800px; color: #4b5963; font-size: 19px; line-height: 1.6; }
+    h2 { margin-top: 38px; font-size: 25px; letter-spacing: 0; }
+    p, li { line-height: 1.65; }
+    ol, ul { padding-left: 24px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { padding: 13px 14px; border: 1px solid #ccd7dc; text-align: left; vertical-align: top; line-height: 1.45; }
+    th { background: #e8f3f0; }
+    .callout { border-left: 4px solid #14947b; padding: 4px 0 4px 18px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+    .actions a { padding: 11px 15px; border: 1px solid #087864; border-radius: 6px; background: #fff; font-weight: 650; text-decoration: none; }
+    .actions a:first-child { color: #fff; background: #087864; }
+    footer { margin-top: 42px; padding-top: 20px; border-top: 1px solid #ccd7dc; color: #66747c; font-size: 14px; }
+    @media (max-width: 680px) { h1 { font-size: 34px; } .table-wrap { overflow-x: auto; } table { min-width: 680px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="brand" href="index.html"><img src="https://raw.githubusercontent.com/Posnic/POS/main/builds/512-posnic.png" alt="" width="42" height="42"><span>Posnic Open Source POS</span></a>
+    <article>
+      <h1>Retail POS Receipt Printer Troubleshooting</h1>
+      <p class="lead">When a receipt does not print, protect the transaction before touching cables or retrying payment. Then isolate the application, print queue, connection, printer, and cash-drawer layers one at a time.</p>
+
+      <h2>Protect the sale first</h2>
+      <ol>
+        <li>Confirm whether the sale was completed, declined, cancelled, or still open before pressing Pay or Print again.</li>
+        <li>Record the bill number, amount, tender, time, terminal, operator, and visible error.</li>
+        <li>Use reprint only after locating the completed transaction; do not recreate a sale to obtain a receipt.</li>
+        <li>If the state is uncertain, pause that till and reconcile it before accepting another electronic payment.</li>
+      </ol>
+
+      <h2>Isolate the failing layer</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Check</th><th>Evidence to collect</th><th>Interpretation</th></tr></thead>
+        <tbody>
+          <tr><td>Printer self-test</td><td>Model, firmware, paper width, interface, and self-test result.</td><td>A failed self-test is a printer, power, paper, or hardware problem rather than a POS application problem.</td></tr>
+          <tr><td>Operating-system test page</td><td>Selected printer, driver, port, queue state, and result.</td><td>A self-test that passes while the OS test fails points to the driver, queue, port, permissions, or connection.</td></tr>
+          <tr><td>POS test receipt</td><td>Application version, configured printer, template, copy count, and exact error.</td><td>An OS test that passes while only POS printing fails narrows the fault to application configuration or receipt content.</td></tr>
+          <tr><td>Completed-sale reprint</td><td>Bill identifier and whether one, zero, or multiple copies emerge.</td><td>This verifies retrieval and rendering without creating another financial transaction.</td></tr>
+          <tr><td>Cash-drawer kick</td><td>Drawer wiring, printer port, command settings, and authorized action used.</td><td>A drawer connected through the printer depends on the printer path; repeated kicks are not a substitute for diagnosis.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2>Check common failure modes</h2>
+      <ul>
+        <li>Clear paper jams, close the cover, load the correct thermal side, and confirm power and status lights.</li>
+        <li>For USB, verify the same physical port and detect whether the operating system created a second printer instance.</li>
+        <li>For network printers, record the current IP address and test reachability from the till without exposing the printer to the public internet.</li>
+        <li>Inspect stalled, paused, duplicated, or repeatedly retrying print jobs before restarting the queue.</li>
+        <li>Test long item names, tax lines, logos, barcodes, non-ASCII text, and the cutter separately if simple text prints.</li>
+        <li>During Offline POS operation, distinguish local printer access from cloud, payment, or remote-print dependencies.</li>
+      </ul>
+
+      <h2>Recover without creating duplicates</h2>
+      <div class="callout"><p>After repair, reprint one known completed bill and label duplicate copies according to shop policy. Reconcile the bill count, payment records, print queue, and any manual receipt log before returning the till to service.</p></div>
+
+      <p><a href="https://www.posnic.com/">Posnic</a> is offline-first open source POS and Billing Software for retail shops and restaurants. The public <a href="https://github.com/Posnic/POS">Posnic/POS source repository</a> documents implemented hardware interfaces and known evidence boundaries for local and Online/Offline POS deployments.</p>
+      <div class="actions">
+        <a href="https://github.com/Posnic/POS/blob/develop/docs/HARDWARE_MATRIX.md">Review the hardware matrix</a>
+        <a href="https://www.posnic.com/">Visit Posnic</a>
+        <a href="retail-pos-incident-response-checklist.html">Use the incident checklist</a>
+      </div>
+    </article>
+    <footer>Practical deployment guidance from Posnic Innovations Private Limited.</footer>
+  </main>
+</body>
+</html>
