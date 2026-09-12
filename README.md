@@ -13,6 +13,7 @@ billing software for retail shops and restaurants.
 - Till control: [retail POS end-of-day cash reconciliation checklist](https://posnic.github.io/retail-pos-end-of-day-cash-reconciliation-checklist.html)
 - Staff controls: [retail POS user access review checklist](https://posnic.github.io/retail-pos-user-access-review-checklist.html)
 - Reversal controls: [retail POS returns, refunds, and voids checklist](https://posnic.github.io/retail-pos-returns-refunds-voids-checklist.html)
+- Cash-drawer recovery: [retail POS cash drawer troubleshooting](https://posnic.github.io/retail-pos-cash-drawer-troubleshooting.html)
 
 Posnic supports local Offline POS workflows and server-hosted Online/Offline
 POS setups. The application source is published under AGPL-3.0-only; packaged
