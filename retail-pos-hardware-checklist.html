@@ -75,7 +75,7 @@
           <thead><tr><th>Device</th><th>What to record</th><th>Minimum workflow test</th></tr></thead>
           <tbody>
             <tr><td>Receipt printer</td><td>Model, USB/network/Bluetooth connection, driver, paper width, and cutter support.</td><td>Print a sale, return, duplicate receipt, long item list, tax lines, and non-ASCII customer text.</td></tr>
-            <tr><td>Barcode scanner</td><td>Model, keyboard or serial mode, suffix settings, and barcode types.</td><td>Scan known, unknown, repeated, weighted, and damaged labels without adding the wrong item.</td></tr>
+            <tr><td>Barcode scanner</td><td>Model, keyboard or serial mode, suffix settings, and barcode types.</td><td>Scan known, unknown, repeated, weighted, and damaged labels without adding the wrong item. Use the <a href="retail-pos-barcode-scanner-troubleshooting.html">scanner troubleshooting checklist</a> to isolate failures.</td></tr>
             <tr><td>Cash drawer</td><td>Drawer model, printer kick-port wiring, and pulse settings.</td><td>Open only for authorized payment and manual-open actions; confirm failed prints do not create unsafe behavior.</td></tr>
             <tr><td>Weighing scale</td><td>Model, protocol, port, baud rate, units, decimal precision, and calibration status.</td><td>Read stable, changing, zero, and out-of-range weights and verify the billed quantity.</td></tr>
             <tr><td>Customer display</td><td>Display type, resolution, orientation, cable, and browser or serial mode.</td><td>Show item, quantity, discount, tax, total, payment, and cleared-sale states without exposing another customer.</td></tr>
@@ -101,6 +101,7 @@
       <p><a href="https://www.posnic.com/">Posnic</a> is offline-first open source POS and Billing Software for retail shops and restaurants. Its public <a href="https://github.com/Posnic/POS">Posnic/POS source repository</a> includes a versioned hardware matrix that separates implemented interfaces from device-specific evidence, so an Online/Offline POS rollout can be evaluated without turning a source connector into a hardware certification.</p>
       <div class="actions">
         <a href="https://github.com/Posnic/POS/blob/develop/docs/HARDWARE_MATRIX.md">Review the hardware matrix</a>
+        <a href="retail-pos-barcode-scanner-troubleshooting.html">Troubleshoot a scanner</a>
         <a href="https://www.posnic.com/">Visit Posnic</a>
         <a href="offline-pos-backup-checklist.html">Use the backup checklist</a>
       </div>

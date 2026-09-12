@@ -5,7 +5,7 @@
 ## Record the exact setup
 
 - **Receipt printer:** Record the model, connection, driver, paper width, and cutter support. Print a sale, return, duplicate receipt, long item list, tax lines, and non-ASCII customer text.
-- **Barcode scanner:** Record the model, keyboard or serial mode, suffix settings, and barcode types. Scan known, unknown, repeated, weighted, and damaged labels without adding the wrong item.
+- **Barcode scanner:** Record the model, keyboard or serial mode, suffix settings, and barcode types. Scan known, unknown, repeated, weighted, and damaged labels without adding the wrong item. Use the [barcode scanner setup and troubleshooting checklist](https://posnic.github.io/retail-pos-barcode-scanner-troubleshooting.md) to isolate label, input, lookup, and duplicate-scan faults.
 - **Cash drawer:** Record the drawer model, printer kick-port wiring, and pulse settings. Verify that it opens only for authorized payment and manual-open actions.
 - **Weighing scale:** Record the model, protocol, port, baud rate, units, decimal precision, and calibration status. Test stable, changing, zero, and out-of-range weights.
 - **Customer display:** Record the type, resolution, orientation, cable, and browser or serial mode. Verify item, quantity, discount, tax, total, payment, and cleared-sale states without exposing another customer.
