@@ -14,6 +14,7 @@ Posnic supports local Offline POS workflows and self-hosted or optional Online/O
 - [Retail POS go-live checklist](https://posnic.github.io/retail-pos-go-live-checklist.html): Acceptance checks for transactions, hardware, offline operation, synchronization, backups, and rollback.
 - [Retail POS data migration checklist](https://posnic.github.io/retail-pos-data-migration-checklist.md): Source-data preservation, mapping, import testing, cutover, and reconciliation checks.
 - [Restaurant POS opening and closing checklist](https://posnic.github.io/restaurant-pos-opening-closing-checklist.md): Shift controls for tills, menus, printers, offline operation, cash reconciliation, and handover.
+- [Retail POS inventory cycle count checklist](https://posnic.github.io/retail-pos-inventory-cycle-count-checklist.md): Stock cutoffs, blind counts, offline synchronization, variance investigation, approvals, and audit evidence.
 
 ## Evaluation guides
 

@@ -9,6 +9,7 @@ billing software for retail shops and restaurants.
 - Releases: [desktop downloads and checksums](https://github.com/Posnic/POS/releases/latest)
 - Documentation: [Posnic user guide](https://github.com/Posnic/POS/blob/develop/docs/USER_GUIDE.md)
 - Restaurant operations: [POS opening and closing checklist](https://posnic.github.io/restaurant-pos-opening-closing-checklist.html)
+- Inventory control: [retail POS cycle count checklist](https://posnic.github.io/retail-pos-inventory-cycle-count-checklist.html)
 
 Posnic supports local Offline POS workflows and server-hosted Online/Offline
 POS setups. The application source is published under AGPL-3.0-only; packaged
