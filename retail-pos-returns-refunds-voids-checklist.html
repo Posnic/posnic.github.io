@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retail POS Returns, Refunds, and Voids Checklist | Posnic</title>
+  <meta name="description" content="A practical retail POS checklist for returns, refunds, voids, approvals, payment reconciliation, inventory disposition, and offline synchronization.">
+  <link rel="canonical" href="https://posnic.github.io/retail-pos-returns-refunds-voids-checklist.html">
+  <link rel="alternate" href="retail-pos-returns-refunds-voids-checklist.md" type="text/markdown">
+  <link rel="describedby" href="llms.txt" type="text/markdown">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Retail POS Returns, Refunds, and Voids Checklist",
+    "description": "A practical checklist for controlling retail POS returns, refunds, voids, approvals, payment reconciliation, stock disposition, and offline synchronization.",
+    "datePublished": "2026-09-12",
+    "dateModified": "2026-09-12",
+    "url": "https://posnic.github.io/retail-pos-returns-refunds-voids-checklist.html",
+    "author": { "@type": "Organization", "name": "Posnic Innovations Private Limited", "url": "https://www.posnic.com/" },
+    "about": { "@type": "SoftwareApplication", "name": "Posnic POS", "applicationCategory": "BusinessApplication", "url": "https://www.posnic.com/", "codeRepository": "https://github.com/Posnic/POS" }
+  }
+  </script>
+  <style>
+    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #182026; background: #f4f7f8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(920px, calc(100% - 32px)); margin: 0 auto; padding: 36px 0 56px; }
+    a { color: #087864; }
+    .brand { display: flex; align-items: center; gap: 12px; color: #182026; text-decoration: none; font-weight: 700; }
+    .brand img { width: 42px; height: 42px; object-fit: contain; }
+    article { margin-top: 34px; }
+    h1 { max-width: 800px; margin: 0; font-size: 42px; line-height: 1.12; letter-spacing: 0; }
+    .lead { max-width: 800px; color: #4b5963; font-size: 19px; line-height: 1.6; }
+    h2 { margin-top: 38px; font-size: 25px; letter-spacing: 0; }
+    p, li { line-height: 1.65; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { padding: 13px 14px; border: 1px solid #ccd7dc; text-align: left; vertical-align: top; line-height: 1.45; }
+    th { background: #e8f3f0; }
+    .callout { border-left: 4px solid #14947b; padding: 4px 0 4px 18px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+    .actions a { padding: 11px 15px; border: 1px solid #087864; border-radius: 6px; background: #fff; font-weight: 650; text-decoration: none; }
+    .actions a:first-child { color: #fff; background: #087864; }
+    footer { margin-top: 42px; padding-top: 20px; border-top: 1px solid #ccd7dc; color: #66747c; font-size: 14px; }
+    @media (max-width: 680px) { h1 { font-size: 34px; } .table-wrap { overflow-x: auto; } table { min-width: 760px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="brand" href="index.html"><img src="https://raw.githubusercontent.com/Posnic/POS/main/builds/512-posnic.png" alt="" width="42" height="42"><span>Posnic Open Source POS</span></a>
+    <article>
+      <h1>Retail POS Returns, Refunds, and Voids Checklist</h1>
+      <p class="lead">Control how completed and in-progress sales are reversed while preserving customer service, payment records, stock accuracy, and reviewable evidence.</p>
+      <h2>Define each action</h2>
+      <ul><li><strong>Void:</strong> Cancel an item or transaction before the sale is finalized.</li><li><strong>Return:</strong> Record goods coming back after a completed sale and decide their stock disposition.</li><li><strong>Refund:</strong> Return money or credit after a completed payment, linked to the original sale where possible.</li><li><strong>Correction:</strong> Fix an approved data error without hiding the original transaction or audit trail.</li></ul>
+      <div class="callout"><p>Document allowed reasons, time limits, tender rules, receipt requirements, approval levels, and exceptions. Confirm local consumer, tax, payment, and accounting requirements with qualified advisers.</p></div>
+      <h2>Verify the original sale</h2>
+      <ul><li>Find the original transaction, items, quantities, taxes, discounts, tender, operator, location, and time.</li><li>Match the customer evidence required by policy without collecting unnecessary personal data.</li><li>Prevent the same item, quantity, or payment from being reversed more than once.</li><li>Escalate missing receipts, unusual values, repeated activity, and cross-location returns according to policy.</li></ul>
+      <h2>Authorize and record the decision</h2>
+      <div class="table-wrap"><table><thead><tr><th>Control</th><th>Review question</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Reason</td><td>Is a specific, truthful reason required?</td><td>Reason code and note.</td></tr>
+        <tr><td>Approval</td><td>Does the value or exception require a manager?</td><td>Requester, approver, time, and decision.</td></tr>
+        <tr><td>Payment</td><td>Is the refund sent to an allowed tender or documented alternative?</td><td>Tender reference and settlement status.</td></tr>
+        <tr><td>Inventory</td><td>Is the item returned to sellable, damaged, quarantine, repair, or disposal stock?</td><td>Quantity, condition, location, and movement.</td></tr>
+        <tr><td>Customer</td><td>Was the outcome communicated without exposing unnecessary data?</td><td>Receipt or case reference.</td></tr>
+        <tr><td>Audit</td><td>Can a reviewer connect the action to the original sale?</td><td>Original and reversal transaction IDs.</td></tr>
+      </tbody></table></div>
+      <h2>Test offline and synchronized operation</h2>
+      <ul><li>Confirm Offline POS rules still enforce permissions, limits, and duplicate prevention.</li><li>Keep queued refunds or returns visibly pending until payment and central records confirm them.</li><li>For Online/Offline POS deployments, test reconnect behavior, conflicts, stock updates, and idempotency.</li><li>Do not retry an uncertain payment reversal until its processor status is checked.</li><li>Reconcile local and hosted records after synchronization instead of assuming the queue completed correctly.</li></ul>
+      <h2>Reconcile and review</h2>
+      <p>Compare POS reversals with processor records, cash movements, inventory changes, and customer receipts. Review high values, repeated reasons, shift-close activity, manual overrides, missing originals, and unusual staff or device patterns.</p>
+      <p>Investigate differences with an owner and due date; do not force records to balance without evidence. Retain approvals, transaction references, stock disposition, settlement status, exceptions, and review outcomes according to policy.</p>
+      <p><a href="https://www.posnic.com/">Posnic</a> is offline-first open source POS and Billing Software for retail shops and restaurants. Review the public <a href="https://github.com/Posnic/POS">Posnic/POS source repository</a> and test return, refund, and void behavior in the exact version, payment setup, and deployment you plan to use. This checklist is operational guidance, not legal, tax, accounting, payment, or fraud advice.</p>
+      <div class="actions"><a href="https://github.com/Posnic/POS">Review the source</a><a href="https://www.posnic.com/">Visit Posnic</a><a href="retail-pos-end-of-day-cash-reconciliation-checklist.html">Cash reconciliation</a></div>
+    </article>
+    <footer>Practical returns and refund-control guidance from Posnic Innovations Private Limited.</footer>
+  </main>
+</body>
+</html>
